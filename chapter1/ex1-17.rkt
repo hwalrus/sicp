@@ -1,20 +1,9 @@
 #lang racket
 
-(define (halve x)
-  (/ x 2))
-
-(define (double x)
-  (+ x x))
-
-(define (even? x)
-  (= (remainder x 2) 0))
-
 (define (* a b)
-  (define (*iter a b n)
-    (cond ((= b 0) n)
-          ((even? b) (*iter (double a) (halve b) n))
-          (else (*iter a (- b 1) (+ n a)))))
-  (*iter a b 0))
+  (if (= b 0)
+      0
+      (+ a (* a (- b 1)))))
 
 (* 0 0)
 
