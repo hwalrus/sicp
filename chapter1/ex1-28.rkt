@@ -46,11 +46,11 @@
   (display " *** ")
   (display elapsed-time))
 
-(define (search-for-primes greater-than)
+(define (search-for-primes greater-than number-of-primes)
   (newline)
   (display "starting from ")
   (display greater-than)
-  (search-for greater-than 500))
+  (search-for greater-than number-of-primes))
 
 (define (search-for start primes-remaining)
   (cond ((> primes-remaining 0)
@@ -59,4 +59,7 @@
              (search-for (+ start 1) primes-remaining)))))
 
 ; look for the first 500 primes starting from 2. 
-(search-for-primes 2)
+(search-for-primes 2 500)
+
+; first 10 primes after 1 trillion
+(search-for-primes 1000000000000 10)
